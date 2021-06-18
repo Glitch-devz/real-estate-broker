@@ -1,7 +1,7 @@
 # Backend
 
-- Added Models, Routes, Controllers and Database
+none
 
 # Frontend
 
-- Added forntend libraries and Basic Layouts
+- Fixed manifest.json and index.html
