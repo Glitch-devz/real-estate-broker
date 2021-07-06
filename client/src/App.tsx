@@ -1,14 +1,13 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import './App.css';
+import Filter from './components/filter/Filter';
 import Navbar from './components/navbar/Navbar';
 
 const App: FC = () => {
-  // const [count, setCount] = useState<number>(0);
   return (
     <div className="App">
-      {/* <p>The Count is {count}</p>
-      <button onClick={()=> setCount(count+1)}>Counter</button> */}
       <Navbar/>
+      <Filter/>
     </div>
   );
 }
