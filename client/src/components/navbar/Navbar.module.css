@@ -1,0 +1,23 @@
+.navContainer{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.navbarTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  /* padding-bottom: 1rem; */
+}
+.navHr {
+  border: 1px solid #eeeeee;
+  border-radius: 9999px;
+}
+
+.navbarBottom {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: none;
+}
+
+
