@@ -1,0 +1,12 @@
+/* #basic{
+  max-width: 60%;
+  margin: 0 auto;
+}
+.ant-form-item .ant-form-item-label{
+  flex-basis: 10%;
+} */
+.registrationForm{
+  max-width: 40vw;
+  margin: 0 auto;
+  padding: 2rem;
+}
