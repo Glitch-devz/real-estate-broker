@@ -1,7 +1,9 @@
 # Backend
 
-none
+backend
+
+- added ogin and register basic api
 
 # Frontend
 
-- Fixed manifest.json and index.html
+none
