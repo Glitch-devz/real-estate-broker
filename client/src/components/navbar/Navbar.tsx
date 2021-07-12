@@ -1,10 +1,10 @@
+import { FC } from "react";
 import { Menu, Typography } from "antd";
 import { PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import styles from "./Navbar.module.css";
 
 const { Title } = Typography;
-function Navbar() {
-
+const Navbar: FC = () => {
   return (
     <div className={styles.navContainer}>
 
@@ -18,14 +18,10 @@ function Navbar() {
 
       {/* bottom navbar */}
       <Menu mode="horizontal" className={styles.navbarBottom}>
-        <Menu.Item>
-          
-        </Menu.Item>
-
-        <Menu.Item>
-
+        <Menu.Item>          
         </Menu.Item>
       </Menu>
+      
     </div>
   );
 }
