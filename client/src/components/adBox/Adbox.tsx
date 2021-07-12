@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Card, Image, Typography } from "antd";
+import { Card, Image, Typography, Button } from "antd";
 import { BiMap } from "react-icons/bi";
 import { AiFillYoutube } from "react-icons/ai";
 import { ImDownload3 } from "react-icons/im";
+import { MailOutlined, PhoneOutlined } from "@ant-design/icons";
 
 import styles from "./Adbox.module.css";
 import "./Adbox.css";
@@ -24,6 +25,12 @@ const Adbox: FC = () => {
         <p><BiMap/> Find Me in the Map</p>
         <p><AiFillYoutube/> Watch Videos</p>
         <p><ImDownload3/> Documents</p>
+          <Button className={styles.button} type="primary" icon={<MailOutlined />}>
+            Mail
+          </Button>
+          <Button type="primary" icon={<PhoneOutlined />}>
+            Call Now
+          </Button>
       </div>
     </Card>
   );
