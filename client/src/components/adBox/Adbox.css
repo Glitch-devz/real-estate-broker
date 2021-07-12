@@ -1,0 +1,15 @@
+.ant-card .ant-card-body{
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+.ant-card {
+  width: 50%;
+  margin: 2% auto;
+}
+.ant-image{
+  margin-right: 20px;
+}
+.Adbox_adInfo__d3c2o{
+  padding: 20px;
+}
