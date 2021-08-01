@@ -1,4 +1,5 @@
-import Admin from "../models/admin";
+import Admin from "../models/admin.model";
+import Land from "../models/land.model";
 
 export const registerAdmin = async (req: any, res: any) => {
   try {
@@ -34,6 +35,44 @@ export const loginAdmin = async (req: any, res: any) => {
       }
     }
     res.status(200).json({});
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getLands = async (req: any, res: any) => {
+  try {
+    const lands = await Land.find();
+    res.status(200).json({
+      lands,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const addLand = async (req: any, res: any) => {
+  try {
+    const land = new Land(req.body);
+    await land.save();
+    res.status(200).json({
+      message: "Successfully added land " + land.name,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const addAssetsToLand = async (req: any, res: any) => {
+  try {
+    let assets: any = [];
+    await Land.updateOne(
+      { _id: req.params.landid },
+      { $set: { assets: assets } }
+    );
+    res.status(200).json({
+      message: "Successfully updated land ",
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

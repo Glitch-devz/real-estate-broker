@@ -4,12 +4,13 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 //routes
-import AdminRoute from "./routes/admin.route";
+import AdminRoute from "./routes/admin.router";
+import PublicRoute from "./routes/public.router";
 
 //envs
 import envConfigs from "./configs/env.config";
-//database connection
 
+//database connection
 let connectionUri = envConfigs.mongoUri;
 let options = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(connectionUri, options, function (error) {
@@ -24,6 +25,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/admin", AdminRoute);
+app.use("/", PublicRoute);
 
 //listener
 let port = parseInt(envConfigs.port || "5000");

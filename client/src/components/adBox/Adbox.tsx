@@ -9,7 +9,25 @@ import styles from "./Adbox.module.css";
 import "./Adbox.css";
 
 const { Title } = Typography;
-const Adbox: FC = () => {
+type Assets = {
+  name: string;
+  url: string;
+  type: string;
+};
+type LandType = {
+  name: string;
+  email: string;
+  phone: string;
+  price: number;
+  address: string;
+  assets: Array<Assets>;
+};
+
+interface LandProps {
+  land: LandType;
+}
+
+const Adbox: FC<LandProps> = ({ land }) => {
   const [images] = useState([
     "https://thumbs.dreamstime.com/b/land-sale-sign-empty-green-meadow-near-tree-surrounded-white-wooden-fence-beautiful-sky-background-red-letters-211205620.jpg",
     "https://na.rdcpix.com/1504101927/8ecb8b5c10a19ccbe1daba7bc38ec77cw-c287292xd-w826_h860_q80.jpg",
@@ -37,6 +55,7 @@ const Adbox: FC = () => {
         >
           {images.map((img, id) => (
             <img
+              key={id}
               style={{ height: "60px", objectFit: "contain" }}
               src={img}
               alt={id.toString()}
@@ -47,9 +66,9 @@ const Adbox: FC = () => {
       </div>
       <div className={styles.adInfo}>
         <Title level={4}>
-          BDT <span className={styles.price}>{price}</span>
+          BDT <span className={styles.price}>{land.price}</span>
         </Title>
-        <p>Sector 6, Uttara, Dhaka</p>
+        <p>{land.address}</p>
         <p>
           <BiMap /> Find Me in the Map
         </p>
@@ -67,7 +86,7 @@ const Adbox: FC = () => {
           Mail
         </Button>
         <Button type="primary" icon={<PhoneOutlined />}>
-          Call Now
+          Call Now - {land.phone}
         </Button>
       </div>
     </Card>

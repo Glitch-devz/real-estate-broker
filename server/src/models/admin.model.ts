@@ -1,12 +1,5 @@
 import { Schema, model } from "mongoose";
-
-interface Admin {
-  name: string;
-  role: string;
-  email: string;
-  phone: string;
-  password: string;
-}
+import { Admin } from "../interface/Admin.interface";
 
 const AdminSchema = new Schema<Admin>({
   name: { type: String, required: true },
@@ -16,5 +9,5 @@ const AdminSchema = new Schema<Admin>({
   password: { type: String, required: true },
 });
 
-const UserModel = model<Admin>("Admin", AdminSchema);
-export default UserModel;
+const AdminModel = model<Admin>("Admin", AdminSchema);
+export default AdminModel;

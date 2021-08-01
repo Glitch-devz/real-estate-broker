@@ -2,8 +2,8 @@
 
 backend
 
-- added ogin and register basic api
+none
 
 # Frontend
 
-none
+added image gallery view in frontend property card
