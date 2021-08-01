@@ -1,21 +1,27 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { FC, useEffect } from "react";
+type Assets = {
+  name: string;
+  url: string;
+  type: string;
+};
+type LandType = {
+  name: string;
+  email: string;
+  phone: string;
+  price: number;
+  address: string;
+  assets: Array<Assets>;
+};
 
-const Lands = () => {
-  const [lands, setLands] = useState([]);
-  const getLands = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_SERVER_ADDRESS}/admin/lands`
-      );
-      setLands(data.lands);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+interface LandsProps {
+  lands: Array<LandType>;
+  getLands: () => void;
+}
+
+const Lands: FC<LandsProps> = ({ lands, getLands }) => {
   useEffect(() => {
     getLands();
-  }, []);
+  }, [getLands]);
   return (
     <div>
       {lands.map((land, id) => (

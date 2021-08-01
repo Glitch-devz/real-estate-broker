@@ -36,7 +36,6 @@ const Adbox: FC<LandProps> = ({ land }) => {
     "https://opimedia.azureedge.net/-/media/images/men/editorial/articles/magazine-articles/1974/05-01/tips-for-dealing-with-real-estate-agents/country-property-fence-web.jpg",
   ]);
   const [mainImage, setMainImage] = useState(images[0] || "");
-  const price: string = "18,000,000";
   return (
     <Card>
       <div>
@@ -65,6 +64,7 @@ const Adbox: FC<LandProps> = ({ land }) => {
         </div>
       </div>
       <div className={styles.adInfo}>
+        <h1>{land.name}</h1>
         <Title level={4}>
           BDT <span className={styles.price}>{land.price}</span>
         </Title>

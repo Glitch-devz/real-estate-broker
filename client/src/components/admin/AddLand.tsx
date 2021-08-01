@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import axios from "axios";
-const AddLand = () => {
+import { useRef } from "react";
+
+interface AddLandProps {
+  getLands: () => void;
+}
+
+const AddLand: FC<AddLandProps> = ({ getLands }) => {
   const [formData, setFormData] = useState({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (e: any) => {
     setFormData({
@@ -21,6 +28,10 @@ const AddLand = () => {
       );
       //   console.log(process.env.SERVER_ADDRESS);
       console.log(data);
+      if (data) {
+        formRef.current?.reset();
+        getLands();
+      }
     } catch (error) {
       alert(error.message);
     }
@@ -28,7 +39,7 @@ const AddLand = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={formRef}>
         <div>
           <label>Name of the land</label>
           <input
