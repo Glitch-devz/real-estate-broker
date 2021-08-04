@@ -7,7 +7,6 @@ real-estate-broker backend and frontend application
 ### for server
 
 ```
-cd server
 npm run dev
 ```
 
