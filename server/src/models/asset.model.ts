@@ -8,5 +8,5 @@ const AssetSchema = new Schema<Assets>({
   url: { type: String, required: true },
 });
 
-const AssetModel = model<Assets>("Land", AssetSchema);
+const AssetModel = model<Assets>("Asset", AssetSchema);
 export default AssetModel;

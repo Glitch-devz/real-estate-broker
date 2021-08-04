@@ -1,4 +1,5 @@
 import Admin from "../models/admin.model";
+import Asset from "../models/asset.model";
 import Land from "../models/land.model";
 
 export const registerAdmin = async (req: any, res: any) => {
@@ -42,7 +43,7 @@ export const loginAdmin = async (req: any, res: any) => {
 
 export const getLands = async (req: any, res: any) => {
   try {
-    const lands = await Land.find();
+    const lands = await Land.find().populate({ path: "assets" });
     res.status(200).json({
       lands,
     });
@@ -64,6 +65,7 @@ export const addLand = async (req: any, res: any) => {
 };
 
 export const addAssetsToLand = async (req: any, res: any) => {
+  // console.log(req);
   try {
     let assets: any = [];
     await Land.updateOne(
@@ -72,6 +74,32 @@ export const addAssetsToLand = async (req: any, res: any) => {
     );
     res.status(200).json({
       message: "Successfully updated land ",
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const uploadAssets = async (req: any, res: any) => {
+  try {
+    const url = `/assets/${req.params.type}/${req.file.filename}`;
+    const asset = new Asset({
+      name: req.params.landid + req.file.filename,
+      type: "image",
+      url: url,
+    });
+    await asset.save();
+    await Land.updateOne(
+      { _id: req.params.landid },
+      { $push: { assets: asset._id } }
+    );
+    res.status(200).json({
+      url,
+      message:
+        "Successfully uploaded " +
+        req.params.type +
+        " for land of " +
+        req.params.landid,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

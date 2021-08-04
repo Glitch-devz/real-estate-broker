@@ -24,6 +24,8 @@ mongoose.connect(connectionUri, options, function (error) {
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use("/assets", express.static(__dirname + "/assets"));
 app.use("/admin", AdminRoute);
 app.use("/", PublicRoute);
 

@@ -2,7 +2,7 @@ import Land from "../models/land.model";
 
 export const getLands = async (req: any, res: any) => {
   try {
-    const lands = await Land.find();
+    const lands = await Land.find().populate({ path: "assets" });
     res.status(200).json({
       lands,
     });

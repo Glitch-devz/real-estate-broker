@@ -12,7 +12,7 @@ const LandSchema = new Schema<Land>({
   assets: [
     {
       type: Schema.Types.ObjectId,
-      ref: "asset",
+      ref: "Asset",
       required: true,
     },
   ],
