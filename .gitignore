@@ -120,3 +120,5 @@ dist
 .DS_Store
 
 server/src/assets/media/*
+!server/src/assets/media/.gitkeep 
+
