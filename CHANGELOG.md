@@ -1,14 +1,11 @@
 # Backend
 
-- routes for adding and fetching lands added
-- models, and interfaces of lands, assets and admin added
-- controllers added for land
-- added public route
+- added image upload middleware and asset manageent in db
+- added storing asset info for lands
 
 # Frontend
 
-- added admin page and form to add lands
-- added land lists in admin page
-- added api integration in homepage for lands
+- added uploader for assets in admin panel
+- admin panel cards view for lands
 
 added image gallery view in frontend property card

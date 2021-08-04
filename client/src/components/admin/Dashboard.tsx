@@ -11,6 +11,7 @@ const Dashboard = (props: RouteComponentProps) => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_SERVER_ADDRESS}/admin/lands`
       );
+      console.log(data);
       setLands(data.lands);
     } catch (error) {
       console.log(error.message);

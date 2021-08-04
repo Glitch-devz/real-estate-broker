@@ -1,10 +1,12 @@
 import { FC, useEffect } from "react";
+import LandCard from "./LandCard";
 type Assets = {
   name: string;
   url: string;
   type: string;
 };
 type LandType = {
+  _id: string;
   name: string;
   email: string;
   phone: string;
@@ -21,13 +23,11 @@ interface LandsProps {
 const Lands: FC<LandsProps> = ({ lands, getLands }) => {
   useEffect(() => {
     getLands();
-  }, [getLands]);
+  }, []);
   return (
-    <div>
+    <div style={{ margin: "30px" }}>
       {lands.map((land, id) => (
-        <div key={id}>
-          <code>{JSON.stringify(land)}</code>
-        </div>
+        <LandCard key={id} land={land} getLands={() => getLands()} />
       ))}
     </div>
   );
