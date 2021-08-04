@@ -1,0 +1,20 @@
+{
+  "name": "real-estate-broker",
+  "version": "1.0.0",
+  "description": "real-estate-broker backend and frontend application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glitch-devz/real-estate-broker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Glitch-devz/real-estate-broker/issues"
+  },
+  "homepage": "https://github.com/Glitch-devz/real-estate-broker#readme"
+}
