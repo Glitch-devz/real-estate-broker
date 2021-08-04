@@ -119,6 +119,6 @@ dist
 # misc
 .DS_Store
 
-server/src/assets/media/*
-!server/src/assets/media/.gitkeep 
+src/assets/media/*
+!src/assets/media/.gitkeep
 
